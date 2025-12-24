@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тапай, чтобы качаться!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        #character {
+            width: 150px;
+            height: 150px;
+            background-color: #0077cc;
+            border-radius: 50%;
+            margin: 20px auto;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #008CBA;
+            color: white;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #005f73;
+        }
+    </style>
+</head>
+<body>
+    <h1>Тапай, чтобы качаться!</h1>
+    <div id="character"></div>
+    <p>Сила: <span id="strength">1</span></p>
+    <p>Очки: <span id="points">0</span></p>
+    <button id="trainButton">Тренироваться</button>
+
+    <script>
+        let strength = 1;
+        let points = 0;
+        const strengthElement = document.getElementById('strength');
+        const pointsElement = document.getElementById('points');
+        const character = document.getElementById('character');
+        const trainButton = document.getElementById('trainButton');
+
+        // Функция, которая увеличивает силу при клике по персонажу
+        character.addEventListener('click', function() {
+            strength++;  // Увеличиваем силу
+            points++;    // Увеличиваем очки
+            strengthElement.innerText = strength;  // Обновляем силу на экране
+            pointsElement.innerText = points;      // Обновляем очки на экране
+
+            // Анимация увеличения персонажа
+            character.style.transform = 'scale(1.2)';
+            setTimeout(() => {
+                character.style.transform = 'scale(1)';
+            }, 200);
+        });
+
+        // Дополнительная тренировка по кнопке
+        trainButton.addEventListener('click', function() {
+            strength++;
+            points++;
+            strengthElement.innerText = strength;
+            pointsElement.innerText = points;
+
+            // Тренировка с анимацией
+            character.style.transform = 'scale(1.2)';
+            setTimeout(() => {
+                character.style.transform = 'scale(1)';
+            }, 200);
+        });
+    </script>
+</body>
+</html>
